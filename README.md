@@ -42,7 +42,8 @@ uce-sequence-data/
 
 ## Setup
 
-See `docs/pipeline_setup.txt` for detailed setup instructions, including required directory structure, adapter sequences, and the `taxon-set.conf` file with all 48 specimen names.
+- **[HPC Environment Setup](docs/hpc_environment_setup.md)** — how to install Miniconda, conda environments, SPAdes, Phyluce, and FUSe on the HPC (per-user)
+- **[Pipeline Setup](docs/pipeline_setup.txt)** — required directory structure, adapter sequences, and the `taxon-set.conf` file with all 48 specimen names
 
 ## References
 
