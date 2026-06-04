@@ -38,7 +38,7 @@ uce-sequence-data/
   - `Bioinfo` — FastQC, Trimmomatic
   - `phyluce-1.7.3` — Phyluce, FUSe
 - SPAdes 4.2.0 (installed in PATH)
-- Spider UCE probe file: `RTA-v3-probe-combine-spider-color-DUPE-SCREENED.fasta`
+- Spider UCE probe file: `probes/RTA-v3-probe-combine-spider-color-DUPE-SCREENED.fasta` (included in this repo)
 
 ## Setup
 
