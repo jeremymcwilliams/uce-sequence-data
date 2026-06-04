@@ -9,7 +9,7 @@ These scripts run the full UCE phylogenomics pipeline on your HPC, adapted from 
 
 ## Before You Start
 
-**1. Edit `PROJDIR`** in each script to match your actual home/scratch directory on the HPC:
+**1. Edit `PROJDIR`** in each script to match your actual home/scratch directory on the HPC (make sure you create this directory first with `mkdir`):
 
 ```bash
 PROJDIR="/home/binford/spider_UCE_project"
