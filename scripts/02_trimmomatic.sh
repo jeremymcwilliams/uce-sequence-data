@@ -2,7 +2,7 @@
 #SBATCH --job-name=trimmomatic
 #SBATCH --nodes=1
 #SBATCH --cpus-per-task=10
-#SBATCH --mem=50G
+#SBATCH --mem=100G
 #SBATCH --time=12:00:00
 #SBATCH --output=trimmomatic.log
 
@@ -35,6 +35,9 @@ source ~/miniconda3/etc/profile.d/conda.sh
 conda activate Bioinfo
 
 threads=10
+
+# Give Java more heap space to prevent OutOfMemoryError on large samples
+export _JAVA_OPTIONS="-Xmx16g"
 
 echo "=== Starting Trimmomatic ==="
 date
