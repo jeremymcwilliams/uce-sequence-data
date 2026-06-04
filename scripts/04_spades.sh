@@ -24,6 +24,9 @@ OUTDIR="$PROJDIR/SPAdes_results"
 
 mkdir -p "$OUTDIR"
 
+# Load SPAdes from PATH (installed manually in home directory)
+export PATH=~/SPAdes-4.2.0-Linux/bin:$PATH
+
 echo "=== Starting SPAdes assemblies ==="
 date
 
