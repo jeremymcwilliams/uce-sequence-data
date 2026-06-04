@@ -19,7 +19,7 @@ PROJDIR="/home/binford/spider_UCE_project"
 
 ```
 spider_UCE_project/
-├── Combined_Fastqs/        ← transfer your 96 .fastq.gz files here
+├── Combined_Fastqs/        ← transfer your 96 .fastq.gz files here (optional)
 ├── adapters/
 │   └── adaptersfasta.fa    ← create this (see below)
 ├── Phyluce_project/
