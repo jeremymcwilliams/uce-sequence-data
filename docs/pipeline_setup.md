@@ -12,7 +12,7 @@ These scripts run the full UCE phylogenomics pipeline on your HPC, adapted from 
 **1. Edit `PROJDIR`** in each script to match your actual home/scratch directory on the HPC:
 
 ```bash
-PROJDIR="/scratch/greta/spider_UCE_project"
+PROJDIR="/home/binford/spider_UCE_project"
 ```
 
 **2. Set up the project directory structure:**
@@ -26,7 +26,6 @@ spider_UCE_project/
 │   ├── probes/
 │   │   └── RTA-v3-probe-combine-spider-color-DUPE-SCREENED.fasta
 │   └── taxon-set.conf      ← create this (see below)
-└── FUSe/                   ← clone from GitHub (see below)
 ```
 
 **3. Create the adapter file.** Confirm adapter sequences with RAPiD Genomics, then create `adapters/adaptersfasta.fa`:
@@ -96,17 +95,6 @@ Lpalma
 Lsabina
 Lblanda2
 Lkaiba
-```
-
-**6. Install FUSe** in your Phyluce environment:
-
-```bash
-conda activate phyluce-1.7.3
-cd ~/spider_UCE_project
-wget -O FUSe.zip https://github.com/rmonjaraz/FUSe/archive/refs/heads/main.zip
-unzip FUSe.zip
-cp FUSe-main/FUSe/FUSe.py ~/miniconda3/envs/phyluce-1.7.3/bin/
-chmod 775 ~/miniconda3/envs/phyluce-1.7.3/bin/FUSe.py
 ```
 
 ---
