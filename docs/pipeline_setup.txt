@@ -1,0 +1,128 @@
+===================================================
+UCE Pipeline — SLURM Scripts for Greta's Spider Data
+===================================================
+
+OVERVIEW
+--------
+These scripts run the full UCE phylogenomics pipeline on your HPC,
+adapted from the "Introduction to the analysis of UCEs V1" guide
+(originally written for PBS/Torque) to SLURM.
+
+48 samples, named by specimen code (e.g. Hoorlog, Lrusselli, etc.)
+
+
+BEFORE YOU START
+----------------
+1. Edit the PROJDIR variable in EACH script to match your actual
+   home/scratch directory on the HPC. For example:
+       PROJDIR="/scratch/greta/spider_UCE_project"
+
+2. Set up the project directory structure:
+       spider_UCE_project/
+       ├── Combined_Fastqs/        ← transfer your 96 .fastq.gz files here
+       ├── adapters/
+       │   └── adaptersfasta.fa    ← create this (see below)
+       ├── Phyluce_project/
+       │   ├── probes/
+       │   │   └── RTA-v3-probe-combine-spider-color-DUPE-SCREENED.fasta
+       │   └── taxon-set.conf      ← create this (see below)
+       └── FUSe/                   ← clone from GitHub (see below)
+
+3. Confirm adapter sequences with RAPiD Genomics, then create:
+       adapters/adaptersfasta.fa
+   Contents (update sequences if RAPiD Genomics specifies different ones):
+       >TruSeq_i7
+       GATCGGAAGAGCACACGTCTGAACTCCAGTCAC
+       >TruSeq_i5
+       AATGATACGGCGACCACCGAGATCTACAC
+
+4. Obtain the spider UCE probe file from the Hedin Lab (SDSU) or Greta:
+       RTA-v3-probe-combine-spider-color-DUPE-SCREENED.fasta
+   Place it in: Phyluce_project/probes/
+
+5. Create taxon-set.conf in Phyluce_project/:
+   This file lists all your sample names. Format:
+       [all]
+       Hoorlog
+       HGob
+       Hruac
+       HDanVil2
+       HWund
+       HMunst
+       HUisib
+       HBrand
+       SYura
+       SOlmos
+       SManc
+       SArroy
+       Stoto
+       SOcotal
+       SPV
+       Lmunst
+       Lgroot
+       LUisib
+       Lhooen
+       LruAsni
+       LfSequeya
+       LfKoumb
+       LGbako
+       Lhehuanc
+       LAtiqHol
+       LStaMaria
+       LJuliaca
+       LMuyo
+       LPalca
+       LQuito
+       LPucara
+       Lhuacarp
+       LTingoM2
+       LAcamay
+       LcaribCC
+       LtainoVV
+       LspCAK2
+       LpanBCI
+       LrufPV
+       LLBcave
+       LJinotec
+       LazTuc
+       Lrusselli
+       Ldeserta
+       Lpalma
+       Lsabina
+       Lblanda2
+       Lkaiba
+
+6. Install FUSe in your Phyluce environment:
+       conda activate phyluce-1.7.3
+       cd ~/spider_UCE_project
+       wget -O FUSe.zip https://github.com/rmonjaraz/FUSe/archive/refs/heads/main.zip
+       unzip FUSe.zip
+       cp FUSe-main/FUSe/FUSe.py ~/miniconda3/envs/phyluce-1.7.3/bin/
+       chmod 775 ~/miniconda3/envs/phyluce-1.7.3/bin/FUSe.py
+
+
+RUNNING THE PIPELINE
+--------------------
+Run scripts in order. Each depends on the previous completing successfully.
+
+  bash 05_organize_contigs.sh        ← run directly (no SLURM needed, fast)
+
+  sbatch 01_fastqc_raw.sh
+  sbatch 02_trimmomatic.sh
+  sbatch 03_fastqc_trimmed.sh        ← after 02 completes
+  sbatch 04_spades.sh                ← after 02 completes (slow, ~hours)
+  bash  05_organize_contigs.sh       ← after 04 completes
+  sbatch 06_phyluce_mapping.sh       ← after 05 completes
+  sbatch 07_phyluce_get_counts.sh    ← after 06 completes
+  sbatch 08_phyluce_get_fastas.sh    ← after 07 completes
+  sbatch 09_fuse.sh                  ← after 08 completes (slow)
+
+Monitor jobs with:   squeue -u your_username
+View logs with:      tail -f jobname.log
+
+
+AFTER SCRIPT 08 — MESQUITE OPTION
+-----------------------------------
+If you prefer to use Mesquite instead of FUSe (script 09):
+1. Transfer the exploded-fastas/ folder from the HPC to your Mac
+2. Follow Practices 5.1–5.6 in the PDF guide using Mesquite on your Mac
