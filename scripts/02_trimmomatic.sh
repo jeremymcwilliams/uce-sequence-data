@@ -16,7 +16,8 @@
 # --- Edit this path to match your project location on the HPC ---
 PROJDIR="/home/greta/spider_UCE_project"
 
-RAWDIR="$PROJDIR/Combined_Fastqs"
+# --- Raw reads may live in a shared folder outside your project directory ---
+RAWDIR="/home/labs/binford/data-june2026/raw_reads_combined"
 OUTDIR="$PROJDIR/Trimmomatic"
 ADAPTERS="$PROJDIR/adapters/adaptersfasta.fa"
 

@@ -13,9 +13,10 @@
 # ============================================================
 
 # --- Edit this path to match your project location on the HPC ---
-PROJDIR="/home/greta/spider_UCE_project"
+PROJDIR="/home/jeremym/gb-test-0626"
 
-RAWDIR="$PROJDIR/Combined_Fastqs"
+# --- the raw reads data may live in a shared folder, and not in your project directory ----#
+RAWDIR="/home/labs/binford/data-june2026/raw_reads_combined"
 OUTDIR="$PROJDIR/FastQC_raw"
 
 mkdir -p "$OUTDIR"
