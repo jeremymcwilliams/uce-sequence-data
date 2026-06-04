@@ -43,6 +43,8 @@ AATGATACGGCGACCACCGAGATCTACAC
 RTA-v3-probe-combine-spider-color-DUPE-SCREENED.fasta
 ```
 
+> This probe file was downloaded from Dryad: https://datadryad.org/dataset/doi:10.5061/dryad.xksn02vkj
+
 **5. Create `taxon-set.conf`** in `Phyluce_project/`. This file lists all 48 specimen names:
 
 ```

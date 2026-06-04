@@ -51,3 +51,4 @@ uce-sequence-data/
 - Bankevich, A. et al. (2012). SPAdes: A new genome assembly algorithm. *Journal of Computational Biology*, 19(5), 455–477.
 - Bolger, A.M. et al. (2014). Trimmomatic: A flexible trimmer for Illumina sequence data. *Bioinformatics*, 30(15), 2114–2120.
 - Monjaraz-Ruedas, R. et al. (2024). Broken ring speciation in California mygalomorph spiders (Nemesiidae, *Calisoga*). *The American Naturalist*. doi:10.1086/730262
+- Spider UCE probe set (`RTA-v3-probe-combine-spider-color-DUPE-SCREENED.fasta`). Dryad. https://datadryad.org/dataset/doi:10.5061/dryad.xksn02vkj
