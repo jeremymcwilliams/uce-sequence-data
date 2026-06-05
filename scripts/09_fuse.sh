@@ -19,7 +19,9 @@
 PROJDIR="/home/greta/spider_UCE_project"
 
 PHYLDIR="$PROJDIR/Phyluce_project"
-FUSEPY="$PROJDIR/FUSe/FUSe/FUSe.py"   # path to FUSe.py
+
+# Path to FUSe.py should be similar to below, but a different home directory
+FUSEPY="/home/jeremym/miniconda3/envs/phyluce-1.7.3/bin/FUSe.py"
 
 cd "$PHYLDIR"
 
